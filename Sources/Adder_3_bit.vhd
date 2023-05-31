@@ -53,7 +53,7 @@ begin
     FA_0 : FA
         port map (
             A => A(0),
-            B => '0',
+            B => '1',
             C_in => '0',
             S => S(0),
             C_Out => FA0_C);
@@ -67,7 +67,7 @@ begin
     FA_2 : FA
         port map (
             A => A(2),
-            B => '1',
+            B => '0',
             C_in => FA1_C,
             S => S(2),
             C_Out => C);
