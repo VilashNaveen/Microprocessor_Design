@@ -1,9 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../Nanoprocessor.srcs/sources_1/new/4_bit_Add_Sub.vhd" \
-"../../../../../Ripple Carry Adder/sources/FA.vhd" \
-"../../../../../Ripple Carry Adder/sources/HA.vhd" \
-"../../../../Nanoprocessor.srcs/sim_1/new/Add_Sub_4_bit_Sim.vhd" \
-
-# Do not sort compile order
-nosort
