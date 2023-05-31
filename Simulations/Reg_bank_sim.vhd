@@ -75,6 +75,10 @@ begin
         
         En <= "100";
         I <= "0001";
+        
+        wait for 100ns;
+        --En <= "000";
+        
         wait ;
     end process;
 
