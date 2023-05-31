@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="38" Path="E:/testingPrograms/Digital-Designs/Nanoprocessor/Nanoprocessor.xpr">
+<Project Version="7" Minor="38" Path="E:/testingPrograms/Microprocessor_Design/Nanoprocessor.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="a600c7158f914ab1898af0990eda49c3"/>
@@ -78,25 +78,25 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../Multiplexer_8_to_1/sources/Decoder_2_to_4.vhd">
+      <File Path="$PPRDIR/../Digital-Designs/Multiplexer_8_to_1/sources/Decoder_2_to_4.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../Multiplexer_8_to_1/sources/Decoder_3_to_8.vhd">
+      <File Path="$PPRDIR/../Digital-Designs/Multiplexer_8_to_1/sources/Decoder_3_to_8.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../Ripple Carry Adder/sources/FA.vhd">
+      <File Path="$PPRDIR/../Digital-Designs/Ripple Carry Adder/sources/FA.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../Ripple Carry Adder/sources/HA.vhd">
+      <File Path="$PPRDIR/../Digital-Designs/Ripple Carry Adder/sources/HA.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -132,7 +132,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../Arithmetic_Unit/Arithmetic_Unit.srcs/sources_1/new/Reg.vhd">
+      <File Path="$PPRDIR/../Digital-Designs/Arithmetic_Unit/Arithmetic_Unit.srcs/sources_1/new/Reg.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -162,7 +162,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../Ripple Carry Adder/sources/RCA_4.vhd">
+      <File Path="$PPRDIR/../Digital-Designs/Ripple Carry Adder/sources/RCA_4.vhd">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
