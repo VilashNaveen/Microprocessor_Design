@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 25.05.2023 14:31:41
+-- Create Date: 06.06.2023 11:23:17
 -- Design Name: 
--- Module Name: Slow_Clk - Behavioral
+-- Module Name: Adder_3_bit_Sim - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,26 +31,33 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity Slow_Clk is
-    Port ( Clk_in : in STD_LOGIC;
-           Clk_out : out STD_LOGIC);
-end Slow_Clk;
+entity Adder_3_bit_Sim is
 
-architecture Behavioral of Slow_Clk is
-signal count : integer := 1;
-signal clk_status : std_logic := '0';
+end Adder_3_bit_Sim;
+
+architecture Behavioral of Adder_3_bit_Sim is
+component Adder_3_bit is
+    Port ( 
+           A : in STD_LOGIC_VECTOR (2 downto 0);
+           S : out STD_LOGIC_VECTOR (2 downto 0));
+end component;
+
+signal A, S : std_logic_vector(2 downto 0);
+
 begin
-    
-    process (Clk_in) begin
-        Clk_out <= clk_status;
-        if (rising_edge(Clk_in)) then
-            count <= count + 1;
-            if(count = 4) then
-                clk_status <= not clk_status;
-                Clk_out <= clk_status;
-                count <= 1;
-            end if;
-         end if;
-    end process;
-    
+
+UUT: Adder_3_bit PORT MAP(
+    A=> A,
+    S => S);
+
+process
+begin
+A <= "001";
+wait for 20ns;
+A <= "000";
+wait for 20ns;
+A <= "100";
+wait;
+end process;
+
 end Behavioral;

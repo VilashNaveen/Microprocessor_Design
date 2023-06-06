@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 25.05.2023 14:31:41
+-- Create Date: 06.06.2023 10:59:11
 -- Design Name: 
--- Module Name: Slow_Clk - Behavioral
+-- Module Name: Slow_Clk_2 - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,12 +31,12 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity Slow_Clk is
+entity Slow_Clk_2 is
     Port ( Clk_in : in STD_LOGIC;
            Clk_out : out STD_LOGIC);
-end Slow_Clk;
+end Slow_Clk_2;
 
-architecture Behavioral of Slow_Clk is
+architecture Behavioral of Slow_Clk_2 is
 signal count : integer := 1;
 signal clk_status : std_logic := '0';
 begin
@@ -45,7 +45,7 @@ begin
         Clk_out <= clk_status;
         if (rising_edge(Clk_in)) then
             count <= count + 1;
-            if(count = 4) then
+            if(count = 5) then
                 clk_status <= not clk_status;
                 Clk_out <= clk_status;
                 count <= 1;

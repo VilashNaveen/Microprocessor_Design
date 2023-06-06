@@ -69,17 +69,15 @@ begin
     
     process
     begin
-        En <= "001";
-        I <= "1010";
-        wait for 100ns;
-        
-        En <= "100";
-        I <= "0001";
-        
-        wait for 100ns;
-        --En <= "000";
-        
-        wait ;
+    I <= "1111";
+    En <= "001";
+    wait for 2ns;
+    En <= "010";
+    wait for 2ns;
+    I <= "1001";
+    En <= "110";
+    wait;
+    
     end process;
 
 

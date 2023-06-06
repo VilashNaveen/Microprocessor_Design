@@ -118,50 +118,50 @@ architecture Behavioral of MicroProcessor is
      signal Bus_12 : std_logic_vector (11 downto 0);
      signal O_bus_n,O_bus_1,O_bus_2,O_bus_3,O_bus_4,O_bus_5,O_bus_6,O_bus_7 : std_logic_vector(3 downto 0);
 begin
-
+    
     Slow_Clk_0 : Slow_Clk
         port map (
             Clk_in => Clk,
             Clk_out => Clk_temp);
-    Program_counter_0 : Program_counter
+            
+    Instruction_decoder_0 : Instruction_decoder
+            port map (
+                I => Bus_12,
+                Reg_jmp => A,
+                Mode => Mode,
+                Load => Load,
+                Jmp_flag => Jmp_flag,
+                R_en => R_en,
+                R_se_1 => Reg_se_1,
+                R_se_2 => Reg_se_2,
+                Ad_Jmp => Ad_jmp,
+                Im_val => Im_val);
+            
+    Rom_0 : Rom
+            port map (
+                address => Address_temp,
+                data => Bus_12);
+                
+    program_counter_0 : Program_counter
         port map (
             Q => Address_temp,
             D => Mux_jmp,
             Res => Res,
             Clk => Clk_temp);
-    Rom_0 : Rom
-        port map (
-            address => Address_temp,
-            data => Bus_12);
+
     Adder_3_bit_0 : Adder_3_bit
         port map (
             A => Address_temp,
             S => Ad_3_to_Mux);
-    Instruction_decoder_0 : Instruction_decoder
-        port map (
-            I => Bus_12,
-            Reg_jmp => A,
-            Mode => Mode,
-            Load => Load,
-            Jmp_flag => Jmp_flag,
-            R_en => R_en,
-            R_se_1 => Reg_se_1,
-            R_se_2 => Reg_se_2,
-            Ad_Jmp => Ad_jmp,
-            Im_val => Im_val);
+
     Mux_2_Way_3_bit_0 : Mux_2_Way_3_bit
         port map (
             A_3 => Ad_3_to_Mux,
             A_J => Ad_jmp,
             S => Mux_jmp,
             Jmp => Jmp_flag);
-    Mux_2_Way_4_bit_0 : Mux_2_Way_4_bit
-        port map (
-            A => S,
-            B => Im_val,
-            S => I,
-            En => Load);
-    Reg_bank_0 : Reg_bank
+            
+        Reg_bank_0 : Reg_bank
         port map (
             En => R_en,
             I => I,
@@ -174,6 +174,24 @@ begin
             O_bus_5 =>O_bus_5,
             O_bus_6 =>O_bus_6,
             O_bus_7 =>O_bus_7);
+            
+    Mux_2_Way_4_bit_0 : Mux_2_Way_4_bit
+        port map (
+            A => S,
+            B => Im_val,
+            S => I,
+            En => Load);
+            
+    Add_Sub_4_bit_0 : Add_Sub_4_bit
+            port map (
+                Mode => Mode,
+                A => A,
+                B => B,
+                S => S,
+                C => temp_1,
+                Zero => Zero,
+                Overflow => Overflow);                  
+
     Mux_8_Way_4_bit_0 : Mux_8_Way_4_bit
         port map (
             I_0 =>O_bus_n,
@@ -198,18 +216,9 @@ begin
             I_7 =>O_bus_7,
             S => Reg_se_2,
             Y => B);
-    Add_Sub_4_bit_0 : Add_Sub_4_bit
-        port map (
-            Mode => Mode,
-            A => A,
-            B => B,
-            S => S,
-            C => temp_1,
-            Zero => Zero,
-            Overflow => Overflow);   
-            
+
         
-    Reg_out <= O_bus_n;
+    Reg_out <= O_bus_7;
 
 
 end Behavioral;

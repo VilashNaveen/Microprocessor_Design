@@ -54,10 +54,11 @@ end Program_counter;
 architecture Behavioral of Program_counter is 
     
     component D_FF 
-        Port ( D : in STD_LOGIC_vector( 2 downto 0);
+        Port ( D : in STD_LOGIC;
               Res : in STD_LOGIC;
               Clk : in STD_LOGIC;
-              Q : out STD_LOGIC_vector (2 downto 0));
+              Q : out STD_LOGIC;
+              Qbar : out STD_LOGIC);
     end component; 
     
  
@@ -65,14 +66,28 @@ architecture Behavioral of Program_counter is
  
 begin 
     
-        
-    D_FF_0 : D_FF
-        port map (
-        D => D,
-        Clk => Clk,
-        Res => Res,
-        Q => Q );
-        
-   
+D_FF_0 : D_FF
+    port map (
+    D => D(0),
+    Clk => Clk,
+    Res => Res,
+    Q =>Q(0) 
+    );   
+    
+D_FF_1 : D_FF
+    port map (
+    D => D(1),
+    Clk => Clk,
+    Res => Res,
+    Q =>Q(1) 
+    );   
+           
+D_FF_2 : D_FF
+     port map (
+     D => D(2),
+     Clk => Clk,
+     Res => Res,
+     Q =>Q(2) 
+     );
     
 end Behavioral;

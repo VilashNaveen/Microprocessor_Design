@@ -44,23 +44,26 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity D_FF is
-    Port ( D : in STD_LOGIC_vector( 2 downto 0);
+    Port ( D : in STD_LOGIC;
            Res : in STD_LOGIC;
            Clk : in STD_LOGIC;
-           Q : out STD_LOGIC_vector (2 downto 0));
+           Q : out STD_LOGIC;
+           Qbar : out STD_LOGIC);
 end D_FF;
 
 architecture Behavioral of D_FF is
 
 begin
    process (Clk) begin
-     If (rising_edge(Clk)) then
-         if Res = '1' then
-             Q <= "000";
-         else
-             Q <= D;
-         end if;
-     end if;
- end process;
+        if (rising_edge(Clk))then
+            if Res = '1' then
+                Q <= '0';
+                Qbar <= '1';
+             else
+                Q <= D;   
+                Qbar <= not D;
+             end if;   
+        end if;
+    end process;
 
 end Behavioral;
