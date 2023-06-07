@@ -35,7 +35,8 @@ entity MicroProcessor is
     Port ( 
         Clk,Res : in std_logic;
         Overflow, Zero : out std_logic;
-        Reg_out : out std_logic_vector(3 downto 0)
+        Reg_out : out std_logic_vector(3 downto 0);
+        Seg_out : out STD_LOGIC_VECTOR (6 downto 0)
     );
 end MicroProcessor;
 
@@ -111,6 +112,10 @@ architecture Behavioral of MicroProcessor is
          Res : in STD_LOGIC;
          Clk : in STD_LOGIC);
      end component;
+     component Seg_7 is
+         Port (I : in STD_LOGIC_VECTOR (3 downto 0);
+         O : out STD_LOGIC_VECTOR (6 downto 0));
+     end component; 
      
      signal Clk_temp, Jmp_flag, Load, Mode, temp_1 : std_logic;
      signal Im_val, I,A,B,S : std_logic_vector (3 downto 0);
@@ -216,6 +221,9 @@ begin
             I_7 =>O_bus_7,
             S => Reg_se_2,
             Y => B);
+    Seg_7_0 : Seg_7
+        Port map(I=> O_bus_7,
+             O=>Seg_out); 
 
         
     Reg_out <= O_bus_7;

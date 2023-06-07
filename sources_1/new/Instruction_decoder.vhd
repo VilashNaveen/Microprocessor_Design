@@ -87,8 +87,9 @@ process(instruction, reg_temp_1, reg_temp_2, val_temp, Reg_Jmp)
             R_se_1 <= "000";
             R_se_2 <= reg_temp_1;
             
-            R_en <= reg_temp_1;
             Load <= '1';
+            R_en <= reg_temp_1;
+            
 
         else
             R_se_1 <= reg_temp_1;

@@ -63,13 +63,18 @@ begin
   process
     begin
       Mode <= '0';
-      A <= "0100";
-      B <= "0010";
+      A <= "0101";
+      B <= "1111";
       wait for 100ns;
       
       Mode <= '1';
       A <= "1000";
       B <= "0001";
+      
+      wait for 100ns;
+      Mode <= '1';
+      A <= "0110";
+      B <= "0011";
       
       wait for 100ns;
       wait;

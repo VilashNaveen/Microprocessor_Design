@@ -41,6 +41,7 @@ architecture Behavioral of MicroProcessor_sim is
     Port ( 
         Clk,Res : in std_logic;
         Overflow, Zero : out std_logic;
+        Seg_out : out STD_LOGIC_VECTOR (6 downto 0);
         Reg_out : out std_logic_vector(3 downto 0)
     );
     end component;
@@ -49,7 +50,7 @@ architecture Behavioral of MicroProcessor_sim is
  SIGNAL Res : std_logic := '1';
  SIGNAL Reg_out :STD_LOGIC_VECTOR(3 downto 0);
  signal Clk : std_logic := '0';
-
+ signal seg_out : std_logic_vector (6 downto 0);
     
 begin
     UUT: Microprocessor PORT MAP(
@@ -57,7 +58,8 @@ begin
         Clk=>Clk,
         Overflow => Overflow,
         Zero => Zero,
-        Reg_out => Reg_out
+        Reg_out => Reg_out,
+        Seg_out => seg_out
         
   );
    

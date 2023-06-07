@@ -92,7 +92,7 @@ begin
             C_out => C_out);
 
     Zero <= not (O(0) or O(1) or O(2) or O(3) or C_out);
-    Overflow <= FA2_C nor c_out;
+    Overflow <= FA2_C xor c_out;
     
     S <= O  ;
     C <= C_out;
